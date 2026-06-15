@@ -11,29 +11,54 @@ import bcrypt from "bcryptjs";
             credentials: {}, // 
 
             async authorize(credentials) {
-                const {email, password} = credentials;
+                if(!credentials?.email || !credentials?.password)
+                 throw new Error("Missing email or password");
 
                 try {
                     await connectMongoDB();
-                    const user = await User.findOne({email });
+                    
+                    const emailNormalized = credentials.email.toLowerCase().trim();
+                    const user = await User.findOne({email: emailNormalized });
 
                     if(!user) {
+                        console.log("User not found in DB:", emailNormalized);
                         return null;
                     
                     }
-                    const passwordMatch = await bcrypt.compare(password, user.password);
+                    const passwordMatch = await bcrypt.compare(credentials.password, user.password);
 
                     if(!passwordMatch){
+                        console.log("User not found in DB:", emailNormalized)
                         return null;
                     }
-                    return user;
+                    return {
+                        id: user._id.toString(),
+                        email: user.email,
+                        name: user.name || "user",
+                    }
 
                 }catch(error) {
-                    console.log("error:", error);
+                    console.log("Auth internal error production runtime:", error);
+                    return null;
                 }
             },
         }),
     ],
+    callbacks: {
+        async jwt({token, user}){
+            if(user) {
+                token.id = user.id;
+            }
+            return token;
+        },
+        async session({session, token}){
+            if(session.user){
+                session.user.id = token.id;
+            }
+            return session;
+        }
+    },
+
     session: {
         strategy: "jwt",
     },
