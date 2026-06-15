@@ -11,6 +11,7 @@ export default function RegisterForm() {
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
     const [showPassword, setShowPassword] = useState(false);
+    const [isDarkMode, setisDarkMode] = useState(false)
 
     const router = useRouter();
 
@@ -135,7 +136,7 @@ export default function RegisterForm() {
                 <h1 className="text-3xl font-extrabold text-blue-900 mb-1.5 tracking-tight">
                     Create Account
                 </h1>
-                <p className="text-slate-300 text-sm mb-8">Register as an official employee  to access the central network</p>
+                <p className="text-slate-400 text-sm mb-8">Register as an official employee  to access the central network</p>
 
              
                 
