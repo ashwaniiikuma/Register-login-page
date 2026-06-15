@@ -129,7 +129,7 @@ export default function RegisterForm() {
         <div className="md:w-1/2 flex flex-col justify-center items-center p-4 sm:p-8 bg-slate-50/40 min-h-screen bg-white">
             {/* Glow Aura Effect */}
             
-            <div className="w-full max-w-md bg-white border border-slate-200/80 rounded-2xl p-9 sm:p-10 shadow-[0_8px_30px_rgb(0,0,0,0.02)] hover:shadow-[0_8px_30px_rgb(37,99,235,0.05)] transt duration-500 relative overflow-hidden">
+            <div className="w-full max-w-md bg-white border border-slate-200/80 rounded-2xl p-9 sm:p-10 shadow-[0_8px_30px_rgb(0,0,0,0.02)] hover:shadow-[0_8px_30px_rgb(37,99,235,0.05)] transition-all duration-500 relative overflow-hidden">
                 <div className="absolute top-0 left-0 h-[3px] bg-gradient-to-r from-blue-500 to-cyan-500"></div>
                
                 <h1 className="text-3xl font-extrabold text-blue-900 mb-1.5 tracking-tight">

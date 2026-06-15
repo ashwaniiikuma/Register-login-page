@@ -34,31 +34,31 @@ export default function LoginForm() {
         }
     }
 return (
-    <div className="grid place-items-center h-screen bg-[#1e3a8a]"> 
+    <div className=" w-screen h-screen h-full flex flex-col grid place-items-center  min-h-screen bg-[#1e3a8a] p-4 sm:p-10 md:p-8 fixed inset-0 overflow-y-auto"> 
         {/* Dark background for AI feel */}
         
-        <div className="relative group">
+        <div className="relative group w-full max-w-md flex flex-col items-center">
             {/* Background Glow Effect */}
             <div className="absolute  rounded-lg blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
             
             <div className="flex items-center gap-2 mb-5 group/logo cursor-default">
                 <div className="w-8 h-8 bg-[#2563ab] rounded-lg flex items-center justify-center text-white font-black shadow-md shadow-blue-500/20 group-hover/logo:scale-105 transition-transform">J</div>
-                <span className="text-sm font-bold tracking-wide text-slate-800 uppercase">JSL <span className="text-[#2563eb]">Works</span></span>
+                <span className="text-sm font-bold tracking-wide text-slate-800 uppercase">JSL <span className="text-[#2563eb]">Works <span className="text-slate-300">PVT LTD</span></span></span>
 
             </div>
 
-            <div className="relative shadow-2xl p-10 rounded-xl bg-[#fefafc] border border-slate-700 w-full max-w-md">
+            <div className="relative shadow-2xl md:pr-10 mr-3 p-8 rounded-xl bg-[#fefafc] border border-slate-700 w-full max-w-md overflow-hidden">
                 
                 <h1 className="text-3xl font-black mb-2 text-blue-900 tracking-tight">
                     Welcome Back
                 </h1>
-                <p className="text-slate-400 text-sm mb-8">Enter your credentials to access your account.</p>
+                <p className="text-slate-400 text-xs sm:text-sm sm:mb-8">Enter your credentials to access your account.</p>
 
-                <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+                <form onSubmit={handleSubmit} className="flex flex-col gap-4 sm:gap-5 py-3 md:py-0">
                     
                     {/* Email Input Group */}
                     <div className="flex flex-col gap-1">
-                        <label className="text-xs font-semibold text-slate-600 ml-1 uppercase">Email Address</label>
+                        <label className="text-[10px] font-semibold text-slate-600 ml-1 uppercase">Email Address</label>
                         <input 
                             onChange={(e) => setEmail(e.target.value)} 
                             className="bg-[#0f172a] border border-slate-700 text-slate-500 py-3 px-4 rounded-lg outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all placeholder:text-slate-600"
@@ -69,7 +69,7 @@ return (
 
                     {/* Password Input Group */}
                     <div className="flex flex-col gap-1">
-                        <label className="text-xs font-semibold text-slate-600 ml-1 uppercase">Password</label>
+                        <label className="text-[10px] font-semibold text-slate-600 ml-1 uppercase">Password</label>
                         <input 
                             onChange={(e) => setPassword(e.target.value)} 
                             className="bg-[#0f172a] border border-slate-700 text-white py-3 px-4 rounded-lg outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all placeholder:text-slate-600"
