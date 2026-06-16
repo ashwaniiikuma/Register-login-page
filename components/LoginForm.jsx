@@ -41,7 +41,7 @@ return(
         isDarkMode ? "bg-[#0b0f19]" : "bg-[#1e3a8a]"
     }`}> 
         
-        <div className="relative w-full max-w-sm sm:max-w-md flex  flex-col items-center mx-auto px-2 sm:px-0">
+        <div className="relative w-full max-w-sm sm:max-w-md flex  flex-col items-center mx-auto px-10 sm:px-0">
             
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-60 h-60 sm:w-72 sm:h-72 bg-gradient-to-tr from-cyan-500/10 to-purple-500/10 rounded-full blur-3xl pointer-events-none z-0"></div>
             
