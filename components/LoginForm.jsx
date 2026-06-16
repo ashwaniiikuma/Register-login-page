@@ -87,7 +87,7 @@ return(
                 </button>
             </div>
             
-            <div className={`relative shadow-2xl py-6 sm:py-8 sm:mx-w-md px-5 sm:px-6 rounded-xl border w-full transition-all duration-300 z-10 ${
+            <div className={`relative shadow-2xl py-6 sm:py-8 px-4 sm:px-10 rounded-xl border w-full transition-all duration-300 z-10 ${
                 isDarkMode 
                 ? "bg-[#131c2e] border-slate-700/80 shadow-black/50" 
                 : "bg-[#fefafc] border-slate-200 shadow-blue-900/20"
@@ -106,18 +106,21 @@ return(
                         <label className={`text-[10px] font-bold ml-1 uppercase tracking-wider transition-colors ${
                             isDarkMode ? "text-slate-400" : "text-slate-600"
                         }`}>Email Address</label>
-                        <input 
-                            type="email" 
-                            required
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)} 
-                            placeholder="name@example.com" 
-                            className={`w-full py-2.5 sm:py-3 px-4 rounded-lg outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all text-sm border ${
-                                isDarkMode 
-                                ? "bg-[#0f172a] border-slate-700 text-white placeholder:text-slate-600" 
-                                : "bg-blue-50 border-blue-100 text-slate-800 placeholder:text-slate-400"
-                            }`}
-                        />
+                                                <div className="relative w-full flex item-center overflow-hidden ">
+
+                       <input 
+    type="email" 
+    required
+    value={email}
+    onChange={(e) => setEmail(e.target.value)} 
+    placeholder="name@example.com" 
+    className={`w-full min-w-0 py-2.5 sm:py-3 px-4 rounded-lg outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all text-sm border ${
+        isDarkMode 
+        ? "bg-[#0f172a] border-slate-700 text-white placeholder:text-slate-600" 
+        : "bg-blue-50 border-blue-100 text-slate-800 placeholder:text-slate-400"
+    }`}
+/>
+</div>
                     </div>
 
                     <div className="flex flex-col gap-1 w-full">
@@ -125,7 +128,7 @@ return(
                             isDarkMode ? "text-slate-400" : "text-slate-600"
                         }`}>Password</label>
                         
-                        <div className="relative w-full block">
+                        <div className="relative w-full flex item-center overflow-hidden ">
                             <input 
                                 type={showPassword ? "text" : "password"} 
                                 required
