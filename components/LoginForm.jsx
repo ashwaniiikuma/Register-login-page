@@ -4,6 +4,8 @@ import Link from "next/link"
 import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 
 export default function LoginForm() {
@@ -29,7 +31,12 @@ export default function LoginForm() {
                 setError("invalid Credentials");
                 return;
             }
+
+            toast.success("Login Successfull! Redirecting...")
+            setTimeout(()=>{
             router.replace("dashboard");
+
+            }, 2500);
 
         }catch (error) {
             console.log(error);
@@ -42,7 +49,7 @@ return(
     }`}> 
         
         <div className="relative w-full max-w-sm sm:max-w-md flex  flex-col items-center mx-auto px-10 sm:px-0">
-            
+            <ToastContainer/>
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-60 h-60 sm:w-72 sm:h-72 bg-gradient-to-tr from-cyan-500/10 to-purple-500/10 rounded-full blur-3xl pointer-events-none z-0"></div>
             
             <div className="flex flex-col items-center mb-4 sm:mb-5 w-full cursor-default z-10">

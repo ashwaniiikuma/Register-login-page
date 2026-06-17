@@ -2,7 +2,8 @@
 import Link from "next/link"
 import { useState } from "react"
 import { useRouter } from "next/navigation";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function RegisterForm() {
 
@@ -11,7 +12,6 @@ export default function RegisterForm() {
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
     const [showPassword, setShowPassword] = useState(false);
-    const [isDarkMode, setisDarkMode] = useState(false)
 
     const router = useRouter();
 
@@ -54,9 +54,13 @@ export default function RegisterForm() {
 
             });
             if(res.ok) {
+                toast.success("You are registered! Redirecting...");
                 const form = e.target;
                 form.reset();
+                setTimeout(() => {
                 router.push("/")
+
+                }, 2500);
             }else{
                 setError("Registration failed. Please try again.");
                 console.log("user registration failed.");
@@ -82,6 +86,7 @@ export default function RegisterForm() {
 
     <div className="min-h-screen w-full  flex flex-col md:flex-row bg-[#f8fafc] overflow-x-hidden"> 
        {/* //Left side: JSL work brand power panel */}
+       <ToastContainer />
         <div className=" w-full right-0 md:w-1/2 bg-gradient-to-br from-[#1e3a8a] via-[#2563eb] to-[#4f46e5] p-8 md:p-16 flex flex-col justify-between text-white relative overflow-hidden">
             <div className="absolute top-1/4 right-0 w-72 h-72 bg-cyan-400 opacity-20 blur-3xl rounded-full"></div>
             <div className="absolute bottom-1/4 left-0 w-72 h-72 bg-purple-400 opacity-20 blur-3xl rounded-full"></div>
